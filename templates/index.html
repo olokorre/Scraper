@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Cliente</title>
+		<meta charset="utf-8">
+		<style>
+			.mostrar { display: none; }
+		</style>
+		<script src="js/jquery-2.1.3.min.js"></script>
+	</head>
+	<body>
+		<div align = "center">
+			<button id = 'ello'  class = "botao" onclick = "local = '/notas'">Boletim</button>
+			<button id = 'otas' class = "botao" onclick = "local = '/hello'">Notas</button>
+			<button id = 'altas' class = "botao" onclick = "local = '/faltas'">Faltas</button>
+			<br /><button id = 'voltar' onclick = 'aa.innerHTML = voltar()'>Voltar</button><br />
+			<div align = "center" id = "corpo"></div>
+			<div id = "teste"> {{ meio }} </div>
+			<script>
+				$("#voltar").addClass("mostrar");
+				const aa = document.getElementById('corpo');
+				var dados = "";
+				var local = "";
+				function organizar() {}
+				(function($){
+					function processClick(e) {
+						// console.log(e);
+						$.ajax({
+						type: "GET",  dataType: 'text',
+						url: local,
+						success: function(data){
+							dados = data;
+							// console.log(data);
+							aa.innerHTML = salvar(data);
+							},
+						error: function( jqXhr, textStatus, errorThrown ){
+							console.log( errorThrown );
+						},
+						});
+						e.preventDefault();
+					}
+				$(".botao").click(processClick);
+				})(jQuery);
+			</script>
+			<script src="js/vue.js"></script>
+			<script src="js/script.js"></script>
+		</div>
+	</body>
+</html>
