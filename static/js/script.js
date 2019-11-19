@@ -31,8 +31,14 @@ function salvar(data) {
             else { retornar += boletim[i]; }
         }
     } else if (local == "/faltas") {
-        retornar = "<p>Faltas não separadas</p>";
-        // retornar = boletim; 
+        // retornar = "<p>Faltas não separadas</p>";
+        // retornar = boletim;
+        for (var i = 22450; i < boletim.length; i++) {
+            aux = boletim[i] + boletim[i + 1] + boletim[i + 2] + boletim[i + 5];
+            console.log(aux + " -> " + i);
+            if (aux == 'E8;>') { Tela.meio =  "Você tem " + boletim[i + 6] + boletim[i + 7] + boletim[i + 8] + boletim[i + 9] + " de faltas!"; break; }
+        }
+        retornar = ""
     } else if (local == "/hello") { 
         retornar = "<p>Notas não separadas</p>";
         // retornar = boletim;
@@ -42,5 +48,6 @@ function salvar(data) {
 function voltar() {
     $(".botao").removeClass("mostrar");
     $("#voltar").addClass("mostrar");
+    Tela.meio = "";
     return "";
 }
