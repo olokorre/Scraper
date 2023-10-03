@@ -10,6 +10,6 @@ Jinja2==2.11.3
 jsonify==0.5
 MarkupSafe==1.0
 requests==2.31.0
-urllib3==1.26.5
+urllib3==1.26.17
 Werkzeug==2.2.3
 flask_restful
